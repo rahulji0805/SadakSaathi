@@ -1,9 +1,10 @@
-# Pothole detection dataset config
+# Road damage detection dataset config
 # Adjust path to your absolute dataset location
 
-path: ./dataset       # root dir (contains images/ and labels/)
+path: dataset       # root dir (contains images/ and labels/)
 train: images/train
 val: images/val
 
 names:
   0: pothole
+nc: 1

@@ -4,6 +4,8 @@ Train YOLOv8n on pothole dataset.
 Usage:
     python train.py
 """
+from pyexpat import model
+
 from ultralytics import YOLO
 
 def main():
@@ -14,16 +16,17 @@ def main():
         data="pothole_data.yaml",
         epochs=100,
         imgsz=640,
-        batch=16,           # lower to 8 if you hit VRAM limits
-        patience=20,        # early stop if val doesn't improve
-        device=0,           # GPU 0; use "cpu" if no GPU detected
+        batch=16,
+        patience=20,
+        device=0,
         project="runs/pothole",
-        name="yolov8n_v1",
+        name="yolov8n_pothole_only_v1",   # naya naam, purana crashed run overwrite na ho
         optimizer="AdamW",
         lr0=0.001,
-        augment=True,       # built-in mosaic/flip/hsv augmentation
+        augment=True,
         val=True,
         plots=True,
+        workers=4,      # 8 se 4 kar diya
     )
 
     # Validate
